@@ -1,0 +1,167 @@
+
+kaban.png
+size: 1873,1919
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Finger
+  rotate: false
+  xy: 1727, 1357
+  size: 41, 43
+  orig: 41, 43
+  offset: 0, 0
+  index: -1
+body
+  rotate: true
+  xy: 774, 2
+  size: 216, 285
+  orig: 216, 285
+  offset: 0, 0
+  index: -1
+eyes_1
+  rotate: false
+  xy: 1583, 177
+  size: 84, 63
+  orig: 84, 63
+  offset: 0, 0
+  index: -1
+eyes_2
+  rotate: false
+  xy: 1482, 89
+  size: 95, 63
+  orig: 95, 63
+  offset: 0, 0
+  index: -1
+eyes_closed
+  rotate: false
+  xy: 679, 519
+  size: 87, 20
+  orig: 87, 20
+  offset: 0, 0
+  index: -1
+foot_1
+  rotate: false
+  xy: 1414, 83
+  size: 66, 157
+  orig: 66, 157
+  offset: 0, 0
+  index: -1
+foot_2
+  rotate: false
+  xy: 1347, 77
+  size: 65, 163
+  orig: 66, 163
+  offset: 0, 0
+  index: -1
+hand_1
+  rotate: false
+  xy: 1061, 33
+  size: 184, 185
+  orig: 184, 185
+  offset: 0, 0
+  index: -1
+hand_2
+  rotate: true
+  xy: 452, 53
+  size: 106, 263
+  orig: 106, 263
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 452, 161
+  size: 320, 324
+  orig: 320, 324
+  offset: 0, 0
+  index: -1
+kd1
+  rotate: false
+  xy: 1337, 242
+  size: 532, 530
+  orig: 750, 714
+  offset: 134, 86
+  index: -1
+kd2
+  rotate: false
+  xy: 774, 761
+  size: 561, 555
+  orig: 750, 714
+  offset: 117, 71
+  index: -1
+kd3
+  rotate: false
+  xy: 754, 1318
+  size: 607, 599
+  orig: 750, 714
+  offset: 88, 53
+  index: -1
+kd4
+  rotate: false
+  xy: 2, 487
+  size: 675, 714
+  orig: 750, 714
+  offset: 33, 0
+  index: -1
+kd5
+  rotate: false
+  xy: 2, 1203
+  size: 750, 714
+  orig: 750, 714
+  offset: 0, 0
+  index: -1
+kd6
+  rotate: false
+  xy: 2, 33
+  size: 448, 452
+  orig: 750, 714
+  offset: 204, 155
+  index: -1
+kd7
+  rotate: false
+  xy: 1363, 1402
+  size: 501, 515
+  orig: 750, 714
+  offset: 180, 133
+  index: -1
+kd8
+  rotate: true
+  xy: 1337, 774
+  size: 542, 534
+  orig: 750, 714
+  offset: 155, 115
+  index: -1
+kd9
+  rotate: true
+  xy: 774, 220
+  size: 539, 549
+  orig: 750, 714
+  offset: 145, 128
+  index: -1
+mouth
+  rotate: true
+  xy: 1247, 23
+  size: 195, 98
+  orig: 195, 98
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: false
+  xy: 1363, 1339
+  size: 362, 61
+  orig: 362, 61
+  offset: 0, 0
+  index: -1
+shlapa
+  rotate: false
+  xy: 1482, 154
+  size: 99, 86
+  orig: 99, 87
+  offset: 0, 1
+  index: -1
+vilka
+  rotate: true
+  xy: 679, 541
+  size: 660, 93
+  orig: 660, 94
+  offset: 0, 0
+  index: -1

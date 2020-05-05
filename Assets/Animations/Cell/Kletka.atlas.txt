@@ -1,0 +1,153 @@
+
+Kletka.png
+size: 1899,846
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer 1
+  rotate: true
+  xy: 583, 187
+  size: 657, 507
+  orig: 657, 507
+  offset: 0, 0
+  index: -1
+Layer 11
+  rotate: true
+  xy: 2, 174
+  size: 670, 579
+  orig: 671, 579
+  offset: 1, 0
+  index: -1
+Layer 22
+  rotate: true
+  xy: 1092, 292
+  size: 552, 471
+  orig: 552, 471
+  offset: 0, 0
+  index: -1
+beard
+  rotate: true
+  xy: 1430, 25
+  size: 265, 197
+  orig: 265, 197
+  offset: 0, 0
+  index: -1
+body
+  rotate: false
+  xy: 1565, 615
+  size: 323, 229
+  orig: 323, 229
+  offset: 0, 0
+  index: -1
+eyes_closed
+  rotate: true
+  xy: 217, 15
+  size: 157, 26
+  orig: 157, 26
+  offset: 0, 0
+  index: -1
+eyes_dead
+  rotate: true
+  xy: 170, 14
+  size: 158, 45
+  orig: 158, 45
+  offset: 0, 0
+  index: -1
+eyes_man_1
+  rotate: true
+  xy: 132, 11
+  size: 161, 36
+  orig: 162, 36
+  offset: 1, 0
+  index: -1
+finger
+  rotate: true
+  xy: 1629, 85
+  size: 42, 51
+  orig: 42, 51
+  offset: 0, 0
+  index: -1
+foot_1
+  rotate: false
+  xy: 1062, 41
+  size: 67, 144
+  orig: 67, 144
+  offset: 0, 0
+  index: -1
+foot_2
+  rotate: false
+  xy: 1692, 34
+  size: 60, 136
+  orig: 60, 136
+  offset: 0, 0
+  index: -1
+hand_1
+  rotate: true
+  xy: 245, 17
+  size: 155, 67
+  orig: 155, 67
+  offset: 0, 0
+  index: -1
+hand_2
+  rotate: false
+  xy: 968, 2
+  size: 92, 183
+  orig: 92, 183
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 1131, 9
+  size: 297, 281
+  orig: 297, 281
+  offset: 0, 0
+  index: -1
+head-1
+  rotate: true
+  xy: 2, 8
+  size: 164, 128
+  orig: 164, 128
+  offset: 0, 0
+  index: -1
+mouth
+  rotate: true
+  xy: 1629, 4
+  size: 79, 44
+  orig: 80, 45
+  offset: 1, 0
+  index: -1
+mouth_2
+  rotate: true
+  xy: 1629, 129
+  size: 49, 61
+  orig: 49, 61
+  offset: 0, 0
+  index: -1
+mouth_3
+  rotate: true
+  xy: 1629, 180
+  size: 115, 67
+  orig: 115, 67
+  offset: 0, 0
+  index: -1
+oblachko
+  rotate: true
+  xy: 1699, 172
+  size: 441, 198
+  orig: 441, 198
+  offset: 0, 0
+  index: -1
+poyas
+  rotate: true
+  xy: 1565, 297
+  size: 316, 132
+  orig: 316, 132
+  offset: 0, 0
+  index: -1
+spear
+  rotate: false
+  xy: 314, 19
+  size: 652, 153
+  orig: 652, 153
+  offset: 0, 0
+  index: -1

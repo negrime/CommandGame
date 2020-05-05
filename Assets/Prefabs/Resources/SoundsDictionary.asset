@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52b2063e579eff543974cc656486f8d7, type: 3}
+  m_Name: SoundsDictionary
+  m_EditorClassIdentifier: 
+  Sounds:
+  - Name: cell_open
+    Clips:
+    - {fileID: 8300000, guid: 96b3bb5e4943249988f385325ea27620, type: 3}
+    - {fileID: 8300000, guid: 77c59f085566449fe8c5e34a36118d2c, type: 3}
+  - Name: enemy_battlecry
+    Clips:
+    - {fileID: 8300000, guid: 3a9db33b7796446c8b801ebf6416598f, type: 3}
+    - {fileID: 8300000, guid: 816951cb379374398878cd212e9845c7, type: 3}
+    - {fileID: 8300000, guid: 92df2df6dbea64fa195ca54d098878f6, type: 3}
+    - {fileID: 8300000, guid: d8e4b2315273245058ed11afe6c9300d, type: 3}
+    - {fileID: 8300000, guid: bad680b9ded4e45c4a47a60c4caecec0, type: 3}
+  - Name: enemy_death
+    Clips:
+    - {fileID: 8300000, guid: 0d52f35dfef3a44c6928df35c9e61c69, type: 3}
+    - {fileID: 8300000, guid: 36c83ed90621549d68e65a7e6bbad731, type: 3}
+    - {fileID: 8300000, guid: 9955aa38e45b44e7587810654ffb982b, type: 3}
+    - {fileID: 8300000, guid: 82bd79e0ccf6c4b348fa8f6b86884f69, type: 3}
+    - {fileID: 8300000, guid: 3686f44dcf0af418290a0f5ce337d304, type: 3}
+  - Name: enemy_step_solo
+    Clips:
+    - {fileID: 8300000, guid: beae4438ad62c4bc784b5b1dd68210c3, type: 3}
+    - {fileID: 8300000, guid: e8e196f59b0df4c7d9a778c0e0e8f9ba, type: 3}
+    - {fileID: 8300000, guid: c5beb8c7768b145969f4cc57f5da50d9, type: 3}
+    - {fileID: 8300000, guid: 68ca552fe93ab46d1a6e0700a5ab8992, type: 3}
+    - {fileID: 8300000, guid: 99b12f423527f4cc3b99d11276904d9b, type: 3}
+    - {fileID: 8300000, guid: 041bd025c28124978a830608f792b10f, type: 3}
+    - {fileID: 8300000, guid: 78a7fc5bf957541b481fff9295f6cc54, type: 3}
+  - Name: minion_attack_solo
+    Clips:
+    - {fileID: 8300000, guid: e65eebaa033f743e0aa23700b2cf4d29, type: 3}
+    - {fileID: 8300000, guid: 305456a162e374da6b8003c33bbdfeaf, type: 3}
+    - {fileID: 8300000, guid: 773489664a1fe45599e8c65077ba5ec7, type: 3}
+    - {fileID: 8300000, guid: 6b63b8f356fe3437bb8ea366ae91ffb3, type: 3}
+    - {fileID: 8300000, guid: 94bbb8cbb05c5439e807fca18d404a3e, type: 3}
+  - Name: minion_battlecry_solo
+    Clips:
+    - {fileID: 8300000, guid: c064d4780088d41b0a00f14276ba8dd4, type: 3}
+    - {fileID: 8300000, guid: ff38d10eef47c48dba8c898f5475cc4f, type: 3}
+    - {fileID: 8300000, guid: eec88f79e6be141caa3481b796366c14, type: 3}
+    - {fileID: 8300000, guid: a4e2073b2f69a471684e01bb1807432c, type: 3}
+    - {fileID: 8300000, guid: 81e5c80d46f604aa09081d35a50867a6, type: 3}
+    - {fileID: 8300000, guid: 5b3722a960b324ea39bba3f8d68e045e, type: 3}
+    - {fileID: 8300000, guid: 9cfa97ca448bc4e969d44d174cf62143, type: 3}
+    - {fileID: 8300000, guid: c96aa42ee9c844ae8a69b7511312adf5, type: 3}
+  - Name: minion_battlecry_group
+    Clips:
+    - {fileID: 8300000, guid: 2e589950f71c942e09bdf0ecaafa925d, type: 3}
+    - {fileID: 8300000, guid: 67b3ccb0873f54c2f8fd46ffc956e32b, type: 3}
+    - {fileID: 8300000, guid: 3492819343e4648a180e30929988bd3f, type: 3}
+    - {fileID: 8300000, guid: 70f1d10e087d941e88158ec2fe92d14a, type: 3}
+    - {fileID: 8300000, guid: e34ddcafacc124f3fa6da9397e663505, type: 3}
+    - {fileID: 8300000, guid: 5bc8e24c6f5f94d24ae64b75183345a7, type: 3}
+    - {fileID: 8300000, guid: 460e3fc21e85140ca97e0e8fcb2b255a, type: 3}
+  - Name: minion_step_solo
+    Clips:
+    - {fileID: 8300000, guid: 9ef1f2a44cb314fdcae2b3d0fbcf1e68, type: 3}
+    - {fileID: 8300000, guid: 5246155ece5fa4688aa49e9f1c1b32bc, type: 3}
+    - {fileID: 8300000, guid: 5574c56f24e57479a9d3486bb895e293, type: 3}
+    - {fileID: 8300000, guid: ff78faf93098943d8a36d7d8fd208dc1, type: 3}
+    - {fileID: 8300000, guid: e486e42da10e64f228b8d0c53b07cba1, type: 3}
+    - {fileID: 8300000, guid: 8751ee854cb704e7ea0a202f98aed51a, type: 3}
+    - {fileID: 8300000, guid: ab07723a7df3e4a71ada9fe29ddab4f4, type: 3}
+    - {fileID: 8300000, guid: 963be8368b11846a09f2c26426e1cb2b, type: 3}
+  - Name: minion_attack_step
+    Clips:
+    - {fileID: 8300000, guid: f5818b41195de41f4b58aae713c1ff0d, type: 3}
+    - {fileID: 8300000, guid: 62e7314698f164743ab6e2e37dfa8adb, type: 3}
+    - {fileID: 8300000, guid: 24ac8420d6768420094436bcd307c476, type: 3}
+    - {fileID: 8300000, guid: a738d85866fb74983a743b02bdc9990f, type: 3}
+    - {fileID: 8300000, guid: b365cd78a63bb45cdb86b5eeb44816f4, type: 3}
+    - {fileID: 8300000, guid: 2e9297ee09cb04d2c92632e6103fc0f3, type: 3}
+    - {fileID: 8300000, guid: 4d93508e518224463a14208c23a972a3, type: 3}
+  - Name: king_steps
+    Clips:
+    - {fileID: 8300000, guid: 6da599ad45143904c9d4ce6d365dc856, type: 3}
+    - {fileID: 8300000, guid: bb7d77274478eb643aa4de35fda21546, type: 3}
+    - {fileID: 8300000, guid: 0ba396227ea3d4c4e818dd823586b2d3, type: 3}
+    - {fileID: 8300000, guid: da94139bce9b0f540b4146c57ffdb66f, type: 3}
+    - {fileID: 8300000, guid: 65471eb2a840f3a439ee23dee67d2574, type: 3}
+    - {fileID: 8300000, guid: fc60b9e3661bb964c829e8b4e4d02c48, type: 3}
+    - {fileID: 8300000, guid: b08d336ebf101a94b9d33fb1b5e9f908, type: 3}
+  - Name: king_scream
+    Clips:
+    - {fileID: 8300000, guid: 2c5d97e16bb1f394e940aeadfbcc58d4, type: 3}
+    - {fileID: 8300000, guid: 73aa90b37bb26124c9898d9a5514fb3b, type: 3}
+    - {fileID: 8300000, guid: 89828cfee4818834e9698dcd2f7e0282, type: 3}
+    - {fileID: 8300000, guid: 4177dd8b556101e43b32e8aaf1e70ffd, type: 3}
+    - {fileID: 8300000, guid: cbd87395804709542aad0b83fe19ff85, type: 3}
+    - {fileID: 8300000, guid: e368d1a9164e6684a9925ce78a9d59c2, type: 3}
+    - {fileID: 8300000, guid: 87160f08adf289348b65444ad93de870, type: 3}
+    - {fileID: 8300000, guid: 82c282e37e1622d44a6a232555dd3277, type: 3}
+  - Name: king_death
+    Clips:
+    - {fileID: 8300000, guid: 6862b0daa10a34b479790fab918f876a, type: 3}
+  - Name: boss_battlecry
+    Clips:
+    - {fileID: 8300000, guid: 03913d336ad4649ce9cf2111791a033b, type: 3}
+  - Name: boss_death
+    Clips:
+    - {fileID: 8300000, guid: a229f20731cf34c7aa4bd767ef59efa0, type: 3}

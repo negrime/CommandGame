@@ -1,0 +1,90 @@
+
+kaban.png
+size: 1434,319
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Finger
+  rotate: false
+  xy: 573, 180
+  size: 41, 43
+  orig: 41, 43
+  offset: 0, 0
+  index: -1
+body
+  rotate: true
+  xy: 2, 7
+  size: 216, 285
+  orig: 216, 285
+  offset: 0, 0
+  index: -1
+eyes_1_g
+  rotate: false
+  xy: 480, 3
+  size: 181, 108
+  orig: 181, 108
+  offset: 0, 0
+  index: -1
+eyes_2_g
+  rotate: false
+  xy: 289, 3
+  size: 189, 108
+  orig: 189, 108
+  offset: 0, 0
+  index: -1
+g_foot_1
+  rotate: true
+  xy: 1048, 2
+  size: 65, 163
+  orig: 65, 163
+  offset: 0, 0
+  index: -1
+g_foot_2
+  rotate: false
+  xy: 1366, 97
+  size: 66, 157
+  orig: 66, 157
+  offset: 0, 0
+  index: -1
+g_hand
+  rotate: false
+  xy: 1048, 69
+  size: 184, 185
+  orig: 184, 185
+  offset: 0, 0
+  index: -1
+g_hand-1
+  rotate: true
+  xy: 289, 113
+  size: 110, 282
+  orig: 110, 282
+  offset: 0, 0
+  index: -1
+g_head
+  rotate: true
+  xy: 678, 7
+  size: 310, 368
+  orig: 310, 368
+  offset: 0, 0
+  index: -1
+g_vilka
+  rotate: false
+  xy: 2, 225
+  size: 674, 92
+  orig: 674, 93
+  offset: 0, 1
+  index: -1
+mouth_g
+  rotate: true
+  xy: 1234, 59
+  size: 195, 130
+  orig: 195, 130
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: false
+  xy: 1048, 256
+  size: 362, 61
+  orig: 362, 61
+  offset: 0, 0
+  index: -1

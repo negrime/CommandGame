@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Player
+  - Minions
+  - Enemy
+  - EnemyMisc
+  - MinionsMisc
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 900951051
+    locked: 0
+  - name: Buildings
+    uniqueID: 923303903
+    locked: 0
+  - name: Shadows
+    uniqueID: 3586001011
+    locked: 0
+  - name: Characters
+    uniqueID: 3022760921
+    locked: 0
+  - name: Environment
+    uniqueID: 1065143067
+    locked: 0
