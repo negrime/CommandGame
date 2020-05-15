@@ -6,7 +6,8 @@ using System;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class Minion : BaseMinion {
+public class Minion : BaseMinion 
+{
     const string SoundSoloAttackKey = "minion_attack_solo";
     const string SoundSoloBattleCryKey  = "minion_battlecry_solo";
     const string SoundGroupBattleCryKey = "minion_battlecry_group";
@@ -24,7 +25,7 @@ public class Minion : BaseMinion {
         Dying,
     }
 
-    public Player      Player;
+    public Player Player;
     public SoundPlayer SoundPlayer;
 
     BaseUnit _target;
