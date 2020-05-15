@@ -10,7 +10,8 @@ using Random = UnityEngine.Random;
 public class SoundsDictionary : ScriptableObject
 {
     [Serializable]
-    public sealed class SoundPack {
+    public sealed class SoundPack
+    {
         public string          Name;
         public List<AudioClip> Clips;
     }

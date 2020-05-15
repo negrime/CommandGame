@@ -1,19 +1,23 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public sealed class PausableAnimator : MonoBehaviour {
+public sealed class PausableAnimator : MonoBehaviour
+ {
     Animator _animator;
 
-    void Start() {
+    void Start() 
+    {
         _animator = GetComponent<Animator>();
         PauseController.OnPauseChanged += OnPauseChanged;
     }
 
-    void OnDestroy() {
+    void OnDestroy()
+    {
         PauseController.OnPauseChanged -= OnPauseChanged;
     }
 
-    void OnPauseChanged(bool isPaused) {
+    void OnPauseChanged(bool isPaused) 
+    {
         _animator.speed = isPaused ? 0f : 1f;
     }
 }

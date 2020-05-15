@@ -3,20 +3,24 @@ using UnityEngine;
 using Spine.Unity;
 
 [RequireComponent(typeof(SkeletonAnimation))]
-public sealed class PausableSpineAnim : MonoBehaviour {
+public sealed class PausableSpineAnim : MonoBehaviour
+{
     SkeletonAnimation _skeletonAnimation;
 
-    void Start() {
+    void Start() 
+    {
         _skeletonAnimation = GetComponent<SkeletonAnimation>();
 
         PauseController.OnPauseChanged += OnPauseChanged;
     }
 
-    void OnDestroy() {
+    void OnDestroy() 
+    {
         PauseController.OnPauseChanged -= OnPauseChanged;
     }
 
-    void OnPauseChanged(bool isPaused) {
+    void OnPauseChanged(bool isPaused)
+    {
         _skeletonAnimation.timeScale = isPaused ? 0f : 1f;
     }
 }

@@ -22,7 +22,6 @@ public class MapGenerator : MonoBehaviour
         GenerateMap();
     }
     
-
     private void GenerateMap()
     {
         previousTile = FlowesTitles[0];
@@ -55,8 +54,6 @@ public class MapGenerator : MonoBehaviour
 
                 
                 Tilemap.SetTile(new Vector3Int(i, j, 0), spawnTile);
-
-
             }
         }
     }

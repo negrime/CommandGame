@@ -7,7 +7,8 @@ using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Collider))]
-public class EnemyMinion : BaseMinion {
+public class EnemyMinion : BaseMinion 
+{
     const string AttackKey = "minion_attack_solo";
     const string BattleCryKey = "enemy_battlecry";
     const string DeathKey  = "enemy_death";

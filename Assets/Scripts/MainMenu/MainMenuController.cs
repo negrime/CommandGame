@@ -2,11 +2,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public sealed class MainMenuController : MonoBehaviour {
-    public Button     PlayButton;
-    public Button     ExitButton;
+public sealed class MainMenuController : MonoBehaviour
+{
+    public Button PlayButton;
+    public Button ExitButton;
 
-    void Start() {
+    void Start() 
+    {
         PlayButton.onClick.AddListener(OnPlayClick);
         ExitButton.onClick.AddListener(OnExitClick);
     }
@@ -16,7 +18,8 @@ public sealed class MainMenuController : MonoBehaviour {
         SceneManager.LoadScene(1);
     }
 
-    void OnExitClick() {
+    void OnExitClick()
+    {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else

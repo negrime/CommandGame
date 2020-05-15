@@ -5,7 +5,8 @@ using DG.Tweening;
 public sealed class MinionWalkingAnim : MonoBehaviour {
     const string AudioKey = "minion_step_solo";
     
-    static MinionWalkingAnim() {
+    static MinionWalkingAnim()
+    {
         DOTween.SetTweensCapacity(500, 200);
     }
 
@@ -15,28 +16,35 @@ public sealed class MinionWalkingAnim : MonoBehaviour {
 
     bool _stop;
 
-    void Start() {
+    void Start()
+    {
         TryCreateAnim();
     }
 
-    public void Play() {
+    public void Play()
+    {
         TryCreateAnim();
-        if ( _sequence.IsPlaying() ) {
+        if ( _sequence.IsPlaying() )
+        {
             return;
         }
         _sequence.Restart();
     }
 
-    public void Stop() {
+    public void Stop()
+    {
         _stop = true;
     }
 
-    public void Kill() {
+    public void Kill()
+    {
         _sequence?.Kill();
     }
 
-    void TryCreateAnim() {
-        if ( _sequence != null ) {
+    void TryCreateAnim()
+    {
+        if ( _sequence != null )
+        {
             return;
         }
         

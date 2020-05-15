@@ -3,7 +3,8 @@ using UnityEngine;
 using Spine.Unity;
 
 [RequireComponent(typeof(SkeletonAnimation))]
-public sealed class EnemyMinionAnim : MonoBehaviour {
+public sealed class EnemyMinionAnim : MonoBehaviour
+{
     const string StepAudioKey = "enemy_step_solo";
     
     const float MinWalkSpeed = 0.5f;

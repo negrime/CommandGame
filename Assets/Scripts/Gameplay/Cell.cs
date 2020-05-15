@@ -5,7 +5,8 @@ using System.Collections.Generic;
 
 using Random = UnityEngine.Random;
 
-public class Cell : MonoBehaviour {
+public class Cell : MonoBehaviour 
+{
     const string OpenAudioKey = "cell_open";
     
     public List<BaseUnit> Guards = new List<BaseUnit>();

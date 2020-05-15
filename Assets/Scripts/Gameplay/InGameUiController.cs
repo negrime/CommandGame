@@ -2,7 +2,8 @@ using UnityEngine;
 
 using TMPro;
 
-public sealed class InGameUiController : MonoBehaviour {
+public sealed class InGameUiController : MonoBehaviour
+{
     public PlayerMinionManager MinionManager;
     public TMP_Text MinionsCountText;
 

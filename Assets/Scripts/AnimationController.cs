@@ -6,16 +6,12 @@ using UnityEngine;
 public class AnimationController : MonoBehaviour
 {
     
-    public SkeletonAnimation      Controller;
+    public SkeletonAnimation Controller;
 
     public List<AnimationReferenceAsset> Animations;
 
     private string currentAnimation;
 
-    void Start()
-    {
-        
-    }
     
 
     public void SetState(string animationName, bool loop = false)

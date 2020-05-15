@@ -7,14 +7,14 @@ using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class Minion : BaseMinion {
-    const string SoundSoloAttackKey     = "minion_attack_solo";
+    const string SoundSoloAttackKey = "minion_attack_solo";
     const string SoundSoloBattleCryKey  = "minion_battlecry_solo";
     const string SoundGroupBattleCryKey = "minion_battlecry_group";
     
-    const float FollowDist  = 40f;
+    const float FollowDist = 40f;
     const float FollowSpeed = 6f;
     const float WanderSpeed = 3f;
-    const float RunSpeed    = 8f;
+    const float RunSpeed = 8f;
     
     public enum State {
         Following,
@@ -33,10 +33,13 @@ public class Minion : BaseMinion {
 
     State _curState = State.Following;
 
-    public State CurState {
+    public State CurState 
+    {
         get => _curState;
-        private set {
-            if ( _curState == value ) {
+        private set 
+        {
+            if ( _curState == value ) 
+            {
                 return;
             }
             _curState = value;
@@ -48,48 +51,63 @@ public class Minion : BaseMinion {
 
     public override Team Team => Team.Player;
 
-    protected new void Start() {
+    protected new void Start()
+    {
         base.Start();
         NavMeshAgent.updateRotation = false;
-        NavMeshAgent.speed          = FollowSpeed;
+        NavMeshAgent.speed = FollowSpeed;
 
         AttackCollider.Init(TryInitFight, TryInitFight);
     }
 
-    void Update() {
-        if ( PauseController.IsPaused ) {
+    void Update() 
+    {
+        if ( PauseController.IsPaused ) 
+        {
             return;
         }
-        switch ( CurState ) {
-            case State.Wandering: {
-                if ( GetPlayerDistance() < FollowDist ) {
+        switch ( CurState )
+        {
+            case State.Wandering: 
+            {
+                if ( GetPlayerDistance() < FollowDist )
+                {
                     CurState = State.Following;
-                } else {
+                } else 
+                {
                     if ( (NavMeshAgent.remainingDistance <= NavMeshAgent.stoppingDistance) ||
-                         (NavMeshAgent.pathStatus != NavMeshPathStatus.PathComplete) ) {
+                         (NavMeshAgent.pathStatus != NavMeshPathStatus.PathComplete) ) 
+                    {
                         var rand = Random.insideUnitCircle * (NavMeshAgent.stoppingDistance * 2f);
                         NavMeshAgent.SetDestination(transform.position + new Vector3(rand.x, 0, rand.y));
                     }
                 }
                 break;
             }
-            case State.Following: {
+            case State.Following:
+            {
                 NavMeshAgent.stoppingDistance = Player.MinionManager.ActiveMinionsNum / 3f;
-                if ( GetPlayerDistance() > FollowDist ) {
+                if ( GetPlayerDistance() > FollowDist )
+                {
                     NavMeshAgent.SetDestination(transform.position);
                     NavMeshAgent.speed = WanderSpeed;
                     CurState = State.Wandering;
-                } else {
+                } else
+                {
                     NavMeshAgent.SetDestination(Player.transform.position);
                     NavMeshAgent.speed = FollowSpeed;
                 }
                 break;
             }
-            case State.Attacking: {
-                if ( _target ) {
+            case State.Attacking:
+            {
+                if ( _target )
+                {
                     NavMeshAgent.SetDestination(_target.transform.position);
-                } else {
-                    if ( CurEnemies.Count == 0 ) {
+                } else
+                {
+                    if ( CurEnemies.Count == 0 )
+                    {
                         CurState = State.Following;
                         NavMeshAgent.stoppingDistance = 5f;
                         break;
@@ -100,39 +118,44 @@ public class Minion : BaseMinion {
                     var myPos = new Vector2(myPosRaw.x, myPosRaw.z);
                     for ( var i = CurEnemies.Count - 1; i >= 0; i-- ) {
                         var enemy = CurEnemies[i];
-                        if ( !enemy ) {
-                            // TODO: bug
-                            // for some a null can be here, though shouldn't be
+                        if ( !enemy ) 
+                        {
                             CurEnemies.RemoveAt(i);
                             continue;
                         }
                         var enemyPosRaw = enemy.transform.position;
                         var enemyPos    = new Vector2(enemyPosRaw.x, enemyPosRaw.z);
                         var tmpDist     = Vector2.Distance(enemyPos, myPos);
-                        if ( tmpDist < minDist ) {
+                        if ( tmpDist < minDist ) 
+                        {
                             minDist   = tmpDist;
                             nextEnemy = enemy;
                         }
                     }
-                    if ( nextEnemy ) {
+                    if ( nextEnemy )
+                    {
                         _target = nextEnemy;
                         _target.OnDied += OnTargetDied;
                     }
                 }
                 break;
             }
-            case State.Fighting: {
+            case State.Fighting: 
+            {
                 break;
             }
         }
     }
 
-    public void Init(Player player) {
+    public void Init(Player player) 
+    {
         Player = player;
     }
 
-    public void Attack(BaseUnit unit) {
-        if ( CurState != State.Following ) {
+    public void Attack(BaseUnit unit) 
+    {
+        if ( CurState != State.Following ) 
+        {
             return;
         }
         CurState = State.Attacking;
@@ -141,24 +164,30 @@ public class Minion : BaseMinion {
         _target         = unit;
         _target.OnDied += OnTargetDied;
 
-        if ( SoundPlayer ) {
-            if ( Player.MinionManager.ActiveMinionsNum < 4 ) {
+        if ( SoundPlayer ) 
+        {
+            if ( Player.MinionManager.ActiveMinionsNum < 4 ) 
+            {
                 SoundPlayer.PlayOneShot(SoundsManager.Instance.GetClip(SoundSoloBattleCryKey));
-            } else {
+            } else
+            {
                 SoundPlayer.PlayOneShot(SoundsManager.Instance.GetClip(SoundGroupBattleCryKey), 0.5f);
             }
         }
     }
 
-    public void FinishDying() {
+    public void FinishDying() 
+    {
         Destroy(gameObject);
     }
 
-    protected override void DieSpecific() {
+    protected override void DieSpecific() 
+    {
         CurState = State.Dying;
     }
 
-    float GetPlayerDistance() {
+    float GetPlayerDistance()
+    {
         var myPosRaw     = transform.position;
         var myPos        = new Vector2(myPosRaw.x, myPosRaw.z);
         var playerPosRaw = Player.transform.position;
@@ -166,8 +195,10 @@ public class Minion : BaseMinion {
         return Vector2.Distance(myPos, playerPos);
     }
 
-    void OnTargetDied(BaseUnit enemy) {
-        if ( _target != enemy ) {
+    void OnTargetDied(BaseUnit enemy) 
+    {
+        if ( _target != enemy )
+        {
             Debug.LogError("Unexpected enemy");
             return;
         }
@@ -176,24 +207,31 @@ public class Minion : BaseMinion {
         _canAttack = true;
     }
 
-    void TryInitFight(GameObject other) {
-        if ( PauseController.IsPaused ) {
+    void TryInitFight(GameObject other)
+    {
+        if ( PauseController.IsPaused ) 
+        {
             return;
         }
         var enemy = GetEnemy(other);
-        if ( enemy ) {
+        if ( enemy )
+        {
             TryAttack(enemy);
         }
     }
     
-    void TryAttack(BaseUnit enemyUnit) {
-        if ( CurState != State.Attacking ) {
+    void TryAttack(BaseUnit enemyUnit) 
+    {
+        if ( CurState != State.Attacking ) 
+        {
             return;
         }
-        if ( !_canAttack ) {
+        if ( !_canAttack )
+        {
             return;
         }
-        if ( _target && (enemyUnit != _target) ) {
+        if ( _target && (enemyUnit != _target) )
+        {
             _target.OnDied -= OnTargetDied;
             _target = enemyUnit;
             _target.OnDied += OnTargetDied;
@@ -202,11 +240,14 @@ public class Minion : BaseMinion {
         _canAttack = false;
     }
 
-    public void MakeAttack() {
+    public void MakeAttack() 
+    {
         if ( IsAlive ) {
-            if ( _target && _target.IsAlive ) {
+            if ( _target && _target.IsAlive ) 
+            {
                 Fight(_target);
-                if ( SoundPlayer ) {
+                if ( SoundPlayer )
+                {
                     SoundPlayer.PlayOneShot(SoundsManager.Instance.GetClip(SoundSoloAttackKey));
                 }
                 _canAttack = true;

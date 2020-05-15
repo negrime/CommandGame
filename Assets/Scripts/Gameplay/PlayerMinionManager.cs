@@ -4,16 +4,19 @@ using System.Collections;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(Player))]
-public class PlayerMinionManager : MonoBehaviour, IEnumerable<Minion> {
+public class PlayerMinionManager : MonoBehaviour, IEnumerable<Minion> 
+{
     readonly List<Minion> _minions = new List<Minion>();
 
     private Player _player;
 
-    public int ActiveMinionsNum {
+    public int ActiveMinionsNum 
+    {
         get {
             var res = 0;
             foreach ( var minion in _minions ) {
-                if ( minion.IsAlive && (minion.CurState != Minion.State.Wandering) ) {
+                if ( minion.IsAlive && (minion.CurState != Minion.State.Wandering) ) 
+                {
                     ++res;
                 }
             }
@@ -21,17 +24,20 @@ public class PlayerMinionManager : MonoBehaviour, IEnumerable<Minion> {
         }
     }
 
-    public void Init(Player player) {
+    public void Init(Player player)
+    {
         _player = player;
     }
 
     public void AddMinion(Minion minion)
     {
-        if ( !minion ) {
+        if ( !minion ) 
+        {
             Debug.LogError("Minion is null");
             return;
         }
-        if ( _minions.Contains(minion) ) {
+        if ( _minions.Contains(minion) ) 
+        {
             Debug.LogError("Minion already added");
             return;
         }
@@ -40,8 +46,10 @@ public class PlayerMinionManager : MonoBehaviour, IEnumerable<Minion> {
         _minions.Add(minion);
     }
 
-    public void RemoveMinion(Minion minion) {
-        if ( !_minions.Contains(minion) ) {
+    public void RemoveMinion(Minion minion)
+    {
+        if ( !_minions.Contains(minion) )
+        {
             Debug.LogError("Unexpected minion");
             return;
         }
@@ -49,20 +57,24 @@ public class PlayerMinionManager : MonoBehaviour, IEnumerable<Minion> {
         _minions.Remove(minion);
     }
 
-    void OnMinionDied(BaseUnit minionUnit) {
+    void OnMinionDied(BaseUnit minionUnit) 
+    {
         var minion = minionUnit.GetComponent<Minion>();
-        if ( !minion ) {
+        if ( !minion )
+        {
             Debug.LogError("Unexpected unit");
             return;
         }
         RemoveMinion(minion);
     }
 
-    public IEnumerator<Minion> GetEnumerator() {
+    public IEnumerator<Minion> GetEnumerator()
+    {
         return _minions.GetEnumerator();
     }
 
-    IEnumerator IEnumerable.GetEnumerator() {
+    IEnumerator IEnumerable.GetEnumerator()
+    {
         return GetEnumerator();
     }
 }

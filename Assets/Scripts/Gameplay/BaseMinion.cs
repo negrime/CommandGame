@@ -4,7 +4,8 @@ using UnityEngine.AI;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public abstract class BaseMinion : BaseUnit {
+public abstract class BaseMinion : BaseUnit 
+{
     public int OverrideBaseHp = -1;
     public int OverrideDamage = -1;
     public ColliderAction VisibilityCollider;

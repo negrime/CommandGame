@@ -1,9 +1,11 @@
 using UnityEngine;
 
-public sealed class RotationKeeper : MonoBehaviour {
+public sealed class RotationKeeper : MonoBehaviour 
+{
     public Vector3 LocalAngle;
 
-    void Update() {
+    void Update() 
+    {
         transform.localEulerAngles = LocalAngle;
     }
 }

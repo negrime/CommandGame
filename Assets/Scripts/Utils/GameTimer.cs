@@ -1,6 +1,7 @@
 using System;
 
-public sealed class GameTimer {
+public sealed class GameTimer 
+{
     readonly float _interval;
     readonly bool  _loop;
 
@@ -10,7 +11,8 @@ public sealed class GameTimer {
 
     Action _onFinish;
 
-    public GameTimer(float interval, Action onFinish, bool loop = false) {
+    public GameTimer(float interval, Action onFinish, bool loop = false) 
+    {
         _interval = interval;
         _timer    = 0f;
 
@@ -20,16 +22,20 @@ public sealed class GameTimer {
         UnityContext.AddUpdateAction(Update);
     }
     
-    void Stop() {
+    void Stop()
+    {
         _onFinish = null;
         UnityContext.RemoveUpdateAction(Update);
     }
 
-    void Update() {
+    void Update() 
+    {
         _timer += PauseController.CurDeltaTime;
-        if ( _timer >= _interval ) {
+        if ( _timer >= _interval ) 
+        {
             _onFinish?.Invoke();
-            if ( !_loop ) {
+            if ( !_loop ) 
+            {
                 Stop();
             }
         }

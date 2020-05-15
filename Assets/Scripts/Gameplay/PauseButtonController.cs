@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public sealed class PauseButtonController : MonoBehaviour {
+public sealed class PauseButtonController : MonoBehaviour 
+{
     public Button Button;
 
-    void Start() {
+    void Start() 
+    {
         Button.onClick.AddListener(OnButtonClick);
     }
 

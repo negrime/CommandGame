@@ -2,7 +2,8 @@ using UnityEngine;
 
 using System;
 
-public abstract class BaseUnit : MonoBehaviour {
+public abstract class BaseUnit : MonoBehaviour
+{
     const float RegenTime = 3f;
 
     public event Action<BaseUnit> OnDied;

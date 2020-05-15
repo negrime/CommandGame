@@ -6,7 +6,8 @@ public class CameraFollow : MonoBehaviour
     public float     ZOffset;
 
 
-    private void LateUpdate() {
+    private void LateUpdate() 
+    {
         if (!Target)
         {
             return;
