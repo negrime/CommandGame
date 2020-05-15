@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public abstract class BaseMinion : BaseUnit {
-    public int            OverrideBaseHp = -1;
-    public int            OverrideDamage = -1;
+    public int OverrideBaseHp = -1;
+    public int OverrideDamage = -1;
     public ColliderAction VisibilityCollider;
     public ColliderAction AttackCollider;
 
@@ -23,19 +23,24 @@ public abstract class BaseMinion : BaseUnit {
     protected override int BaseHp => (OverrideBaseHp > 0) ? OverrideBaseHp : base.BaseHp;
     protected override int Damage => (OverrideDamage > 0) ? OverrideDamage : base.Damage;
 
-    public float Speed {
-        get {
+    public float Speed 
+    {
+        get 
+        {
             TryInit();
             return NavMeshAgent.velocity.magnitude;
         }
     }
 
-    protected void Start() {
+    protected void Start() 
+    {
         TryInit();
     }
 
-    void TryInit() {
-        if ( _isInit ) {
+    void TryInit() 
+    {
+        if ( _isInit ) 
+        {
             return;
         }
         
@@ -50,27 +55,33 @@ public abstract class BaseMinion : BaseUnit {
         _isInit = true;
     }
 
-    protected void OnDestroy() {
+    protected void OnDestroy() 
+    {
         PauseController.OnPauseChanged -= OnPauseChanged;
     }
 
-    void OnPauseChanged(bool isPaused) {
-        if ( isPaused ) {
+    void OnPauseChanged(bool isPaused) 
+    {
+        if ( isPaused ) 
+        {
             _pausedSpeed    = NavMeshAgent.speed;
             _pausedVelocity = NavMeshAgent.velocity;
             _pausedRadius   = NavMeshAgent.radius;
             NavMeshAgent.speed    = 0f;
             NavMeshAgent.velocity = Vector3.zero;
             NavMeshAgent.radius   = 0f;
-        } else {
+        } else 
+        {
             NavMeshAgent.speed    = _pausedSpeed;
             NavMeshAgent.velocity = _pausedVelocity;
             NavMeshAgent.radius   = _pausedRadius;
         }
     }
 
-    void OnDeath(BaseUnit unit) {
-        if ( unit != this ) {
+    void OnDeath(BaseUnit unit) 
+    {
+        if ( unit != this ) 
+        {
             return;
         }
         OnDied -= OnDeath;
@@ -78,31 +89,38 @@ public abstract class BaseMinion : BaseUnit {
         PauseController.OnPauseChanged -= OnPauseChanged;
     }
     
-    void OnNoticeSomething(GameObject other) {
+    void OnNoticeSomething(GameObject other) 
+    {
         var enemy = GetEnemy(other);
-        if ( enemy ) {
+        if ( enemy ) 
+        {
             OnNoticeEnemy(enemy);
         }
     }
 
-    void OnNoticeEnemy(BaseUnit enemy) {
+    void OnNoticeEnemy(BaseUnit enemy) 
+    {
         CurEnemies.Add(enemy);
         enemy.OnDied += OnEnemyDied;
     }
 
-    void OnLoseSomething(GameObject other) {
+    void OnLoseSomething(GameObject other)
+    {
         var enemy = GetEnemy(other);
-        if ( enemy ) {
+        if ( enemy ) 
+        {
             OnLoseEnemy(enemy);
         }
     }
 
-    void OnLoseEnemy(BaseUnit enemy) {
+    void OnLoseEnemy(BaseUnit enemy)
+    {
         enemy.OnDied -= OnEnemyDied;
         CurEnemies.Remove(enemy);
     }
 
-    void OnEnemyDied(BaseUnit enemy) {
+    void OnEnemyDied(BaseUnit enemy) 
+    {
         OnLoseEnemy(enemy);
     }
 }

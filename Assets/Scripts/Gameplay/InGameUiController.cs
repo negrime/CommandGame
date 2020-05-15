@@ -4,13 +4,15 @@ using TMPro;
 
 public sealed class InGameUiController : MonoBehaviour {
     public PlayerMinionManager MinionManager;
-    public TMP_Text            MinionsCountText;
+    public TMP_Text MinionsCountText;
 
-    void Start() {
+    void Start() 
+    {
         MinionsCountText.text = "0";
     }
 
-    void Update() {
+    void Update() 
+    {
         MinionsCountText.text = MinionManager.ActiveMinionsNum.ToString();
     }
 }

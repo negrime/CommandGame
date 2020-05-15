@@ -3,15 +3,16 @@ using UnityEngine;
 using Spine.Unity;
 
 [RequireComponent(typeof(SkeletonAnimation))]
-public sealed class MinionAnim : MonoBehaviour {
+public sealed class MinionAnim : MonoBehaviour 
+{
     const string StepAudioKey  = "minion_step_solo";
     const string AttackStepKey = "minion_attack_step";
     
     const float MinWalkSpeed = 0.5f;
     
-    public Minion            Owner;
+    public Minion Owner;
     public SkeletonAnimation Animation;
-    public SoundPlayer       SoundPlayer;
+    public SoundPlayer SoundPlayer;
     [Space]
     [SpineAnimation(dataField = "Animation")]
     public string IdleAnimName;
@@ -29,36 +30,46 @@ public sealed class MinionAnim : MonoBehaviour {
 
     Vector2 _oldPos;
 
-    void Reset() {
+    void Reset() 
+    {
         Owner = GetComponentInParent<Minion>();
     }
 
-    void Start() {
+    void Start() 
+    {
         _oldPos = GetPos();
         Owner.OnStateChanged += OnStateChanged;
         OnStateChanged(Owner.CurState);
     }
 
-    void OnDestroy() {
-        if ( Owner ) {
+    void OnDestroy() 
+    {
+        if ( Owner ) 
+        {
             Owner.OnStateChanged -= OnStateChanged;
         }
     }
 
-    void Update() {
-        if ( PauseController.IsPaused ) {
+    void Update() 
+    {
+        if ( PauseController.IsPaused ) 
+        {
             return;
         }
         var newPos = GetPos();
-        if ( Vector2.Distance(newPos, _oldPos) > 0.05f ) {
+        if ( Vector2.Distance(newPos, _oldPos) > 0.05f ) 
+        {
             var isMovingRight = _oldPos.x <= newPos.x;
             Animation.skeleton.ScaleX = isMovingRight ? -1f : 1f;
         }
-        switch ( Owner.CurState ) {
+        switch ( Owner.CurState ) 
+        {
             case Minion.State.Following:
-            case Minion.State.Wandering: {
+            case Minion.State.Wandering: 
+            {
                 var isMoving = Owner.Speed >= MinWalkSpeed;
-                if ( isMoving != _isMoving ) {
+                if ( isMoving != _isMoving ) 
+                {
                     _isMoving = isMoving;
                     SetMovingAnim(_isMoving);
                 }
@@ -68,44 +79,55 @@ public sealed class MinionAnim : MonoBehaviour {
         _oldPos = GetPos();
     }
 
-    void SetMovingAnim() {
+    void SetMovingAnim() 
+    {
         var isMoving = Owner.Speed >= MinWalkSpeed;
         SetMovingAnim(isMoving);
     }
 
-    void SetMovingAnim(bool isMoving) {
+    void SetMovingAnim(bool isMoving) 
+    {
         var entry = Animation.AnimationState.SetAnimation(0, isMoving ? WalkAnimName : IdleAnimName, true);
-        if ( SoundPlayer && isMoving ) {
+        if ( SoundPlayer && isMoving ) 
+        {
             entry.Complete += _ => { SoundPlayer.PlayOneShot(StepAudioKey); };
         }
     }
 
-    Vector2 GetPos() {
+    Vector2 GetPos() 
+    {
         var pos = Owner.transform.position;
         return new Vector2(pos.x, pos.z);
     }
 
-    void OnStateChanged(Minion.State newState) {
-        switch ( newState ) {
-            case Minion.State.Following: {
+    void OnStateChanged(Minion.State newState) 
+    {
+        switch ( newState ) 
+        {
+            case Minion.State.Following: 
+            {
                 SetMovingAnim();
                 break;
             }
-            case Minion.State.Attacking: {
+            case Minion.State.Attacking: 
+            {
                 var entry = Animation.AnimationState.SetAnimation(0, RunAnimName, true);
                 entry.Complete += _ => { SoundPlayer.PlayOneShot(AttackStepKey); };
                 break;
             }
-            case Minion.State.Fighting: {
+            case Minion.State.Fighting: 
+            {
                 var entry = Animation.AnimationState.SetAnimation(0, AttackAnimName, false);
                 entry.Complete += _ => { Owner.MakeAttack(); };
                 break;
             }
-            case Minion.State.Wandering: {
+            case Minion.State.Wandering: 
+            {
                 SetMovingAnim();
                 break;
             }
-            case Minion.State.Dying: {
+            case Minion.State.Dying: 
+            {
                 var entry = Animation.AnimationState.SetAnimation(0, DieAnimName, false);
                 entry.Complete += _ => { Owner.FinishDying(); };
                 break;

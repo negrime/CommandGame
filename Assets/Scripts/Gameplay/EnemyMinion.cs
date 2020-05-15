@@ -8,15 +8,16 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Collider))]
 public class EnemyMinion : BaseMinion {
-    const string AttackKey        = "minion_attack_solo";
-    const string BattleCryKey     = "enemy_battlecry";
-    const string DeathKey         = "enemy_death";
-    const string BossDeathKey     = "boss_death";
+    const string AttackKey = "minion_attack_solo";
+    const string BattleCryKey = "enemy_battlecry";
+    const string DeathKey  = "enemy_death";
+    const string BossDeathKey = "boss_death";
     const string BossBattleCryKey = "boss_battlecry";
     
     const float WalkSpeed = 11f;
 
-    public enum State {
+    public enum State 
+    {
         Guarding,
         Pursuing,
         Fighting,
@@ -37,10 +38,12 @@ public class EnemyMinion : BaseMinion {
 
     public event Action<State> OnStateChanged;
     
-    public State CurState {
+    public State CurState 
+    {
         get => _curState;
         private set {
-            if ( _curState == value ) {
+            if ( _curState == value ) 
+            {
                 return;
             }
             _curState = value;
@@ -52,7 +55,8 @@ public class EnemyMinion : BaseMinion {
 
     protected override bool CanRegen => !IsBoss;
 
-    protected new void Start() {
+    protected new void Start()
+    {
         base.Start();
         NavMeshAgent.speed = WalkSpeed;
         AttackCollider.Init(TryAttackSomething, TryAttackSomething);
@@ -60,15 +64,21 @@ public class EnemyMinion : BaseMinion {
         transform.position += new Vector3(rand.x, 0, rand.y);
     }
 
-    void Update() {
-        if ( PauseController.IsPaused || !IsAlive ) {
+    void Update() 
+    {
+        if ( PauseController.IsPaused || !IsAlive )
+        {
             return;
         }
-        switch ( CurState ) {
-            case State.Guarding: {
-                if ( CurEnemies.Count > 0 ) {
+        switch ( CurState ) 
+        {
+            case State.Guarding: 
+            {
+                if ( CurEnemies.Count > 0 ) 
+                {
                     var enemy = FindNextEnemy();
-                    if ( enemy ) {
+                    if ( enemy ) 
+                    {
                         _target        =  enemy;
                         _target.OnDied += OnTargetDied;
                         CurState      =  State.Pursuing;
@@ -77,8 +87,10 @@ public class EnemyMinion : BaseMinion {
                 }
                 break;
             }
-            case State.Pursuing: {
-                if ( !CheckGuardZoneDistance(_target) ) {
+            case State.Pursuing:
+            {
+                if ( !CheckGuardZoneDistance(_target) )
+                {
                     // too far
                     CurState = State.Guarding;
                     var rand = Random.insideUnitSphere * (GuardZoneRadius / 2f);
@@ -90,47 +102,53 @@ public class EnemyMinion : BaseMinion {
                 NavMeshAgent.destination = _target.transform.position;
                 break;
             }
-            case State.Fighting: {
+            case State.Fighting: 
+            {
                 break;
             }
         }
     }
 
-    protected override void DieSpecific() {
+    protected override void DieSpecific() 
+    {
         CurState = State.Dying;
         _canAttack = false;
 
-        if ( SoundPlayer ) {
+        if ( SoundPlayer ) 
+        {
             SoundPlayer.PlayOneShot(IsBoss ? BossDeathKey : DeathKey);
         }
     }
 
-    public void FinishDying() {
+    public void FinishDying() 
+    {
         NavMeshAgent.enabled = false;
-        if ( IsBoss ) {
+        if ( IsBoss ) 
+        {
             DeathDetector.Win();
-        } else {
+        } else 
+        {
             Destroy(gameObject);
         }
     }
 
-    BaseUnit FindNextEnemy() {
+    BaseUnit FindNextEnemy() 
+    {
         BaseUnit nextEnemy = null;
         var      minDist   = float.MaxValue;
         var      myPosRaw  = transform.position;
         var      myPos     = new Vector2(myPosRaw.x, myPosRaw.z);
-        for ( var i = CurEnemies.Count - 1; i >= 0; i-- ) {
+        for ( var i = CurEnemies.Count - 1; i >= 0; i-- ) 
+        {
             var enemy = CurEnemies[i];
-            if ( !enemy ) {
-                // TODO: bug
-                // for some a null can be here, though shouldn't be
+            if ( !enemy ) 
+            {
                 CurEnemies.RemoveAt(i);
                 continue;
             }
             var enemyPosRaw = enemy.transform.position;
             var enemyPos    = new Vector2(enemyPosRaw.x, enemyPosRaw.z);
             if ( !CheckGuardZoneDistance(enemy) ) {
-                // too far
                 continue;
             }
             var tmpDist = Vector2.Distance(enemyPos, myPos);
@@ -142,8 +160,10 @@ public class EnemyMinion : BaseMinion {
         return nextEnemy;
     }
 
-    bool CheckGuardZoneDistance(BaseUnit enemy) {
-        if ( !GuardZoneCenter ) {
+    bool CheckGuardZoneDistance(BaseUnit enemy) 
+    {
+        if ( !GuardZoneCenter ) 
+        {
             return true;
         }
         var enemyPosRaw = enemy.transform.position;
@@ -153,56 +173,70 @@ public class EnemyMinion : BaseMinion {
         return (Vector2.Distance(gzcPos, enemyPos) < GuardZoneRadius);
     }
 
-    void OnTargetDied(BaseUnit enemy) {
-        if ( _target != enemy ) {
+    void OnTargetDied(BaseUnit enemy)
+    {
+        if ( _target != enemy ) 
+        {
             Debug.LogError("Unexpected enemy");
             return;
         }
         _target.OnDied -= OnTargetDied;
-        _target        =  null;
-        if ( IsAlive ) {
-            CurState   = State.Guarding;
+        _target = null;
+        if ( IsAlive ) 
+        {
+            CurState = State.Guarding;
             _canAttack = true;
         }
     }
 
-    void TryAttackSomething(GameObject other) {
-        if ( PauseController.IsPaused ) {
+    void TryAttackSomething(GameObject other)
+    {
+        if ( PauseController.IsPaused ) 
+        {
             return;
         }
         var enemy = GetEnemy(other);
-        if ( enemy ) {
+        if ( enemy ) 
+        {
             TryAttackEnemy(enemy);
         }
     }
 
-    void TryAttackEnemy(BaseUnit enemyUnit) {
-        if ( !_canAttack ) {
+    void TryAttackEnemy(BaseUnit enemyUnit) 
+    {
+        if ( !_canAttack ) 
+        {
             return;
         }
-        if ( CurState == State.Fighting ) {
+        if ( CurState == State.Fighting ) 
+        {
             return;
         }
-        if ( _target && (enemyUnit != _target) ) {
+        if ( _target && (enemyUnit != _target) ) 
+        {
             _target.OnDied -= OnTargetDied;
             _target        =  enemyUnit;
             _target.OnDied += OnTargetDied;
         }
-        // TODO: start attack anim
         CurState = State.Fighting;
         _canAttack = false;
     }
 
-    public void MakeAttack() {
-        if ( IsAlive ) {
-            if ( _target && _target.IsAlive ) {
+    public void MakeAttack() 
+    {
+        if ( IsAlive ) 
+        {
+            if ( _target && _target.IsAlive ) 
+            {
                 Fight(_target);
-                if ( SoundPlayer ) {
+                if ( SoundPlayer ) 
+                {
                     SoundPlayer.PlayOneShot(AttackKey);
                 }
                 _canAttack = true;
             }
-            if ( _target ) {
+            if ( _target ) 
+            {
                 _target.OnDied -= OnTargetDied;
             }
             _target = null;
