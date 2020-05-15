@@ -24,15 +24,6 @@ public sealed class PauseMenuController : MonoBehaviour
     {
         Player.DeathDetector.OnDeath += OnPlayerDied;
         Boss.DeathDetector.OnDeath   += OnBossDied;
-
-        PauseContinueButton.onClick.AddListener(OnContinueClick);
-        PauseMenuButton.onClick.AddListener(OnGoToMenuClick);
-        PauseExitButton.onClick.AddListener(OnExitClick);
-
-        WinContinueButton.onClick.AddListener(OnWinContinueClick);
-
-        LoseMenuButton.onClick.AddListener(OnLoseMenuClick);
-
         WinRoot.SetActive(false);
         LoseRoot.SetActive(false);
         PauseController.OnPauseChanged += OnPauseChanged;
@@ -67,14 +58,14 @@ public sealed class PauseMenuController : MonoBehaviour
         PauseRoot.SetActive(isPaused);
     }
 
-    void OnWinContinueClick()
+    public void OnWinContinueClick()
     {
         PauseController.IsPaused = false;
         WinRoot.SetActive(false);
         _isManual = false;
     }
 
-    void OnLoseMenuClick()
+    public void OnLoseMenuClick()
     {
         PauseController.IsPaused = false;
         LoseRoot.SetActive(false);
@@ -82,18 +73,18 @@ public sealed class PauseMenuController : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    void OnContinueClick() 
+    public void OnContinueClick() 
     {
         PauseController.IsPaused = false;
     }
 
-    void OnGoToMenuClick() 
+    public void OnGoToMenuClick() 
     {
         PauseController.IsPaused = false;
         SceneManager.LoadScene("MainMenu");
     }
 
-    void OnExitClick()
+    public void OnExitClick()
     {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;

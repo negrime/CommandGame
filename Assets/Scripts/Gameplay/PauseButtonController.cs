@@ -5,12 +5,8 @@ public sealed class PauseButtonController : MonoBehaviour
 {
     public Button Button;
 
-    void Start() 
+    public void OnButtonClick() 
     {
-        Button.onClick.AddListener(OnButtonClick);
-    }
-
-    void OnButtonClick() {
         PauseController.IsPaused = true;
     }
 }
