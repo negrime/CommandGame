@@ -12,9 +12,9 @@ public class Minion : BaseMinion {
     const string SoundGroupBattleCryKey = "minion_battlecry_group";
     
     const float FollowDist = 40f;
-    const float FollowSpeed = 6f;
+    const float FollowSpeed = 7f;
     const float WanderSpeed = 3f;
-    const float RunSpeed = 8f;
+    const float RunSpeed = 9f;
     
     public enum State {
         Following,

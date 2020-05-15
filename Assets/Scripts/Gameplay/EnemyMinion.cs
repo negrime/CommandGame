@@ -26,10 +26,11 @@ public class EnemyMinion : BaseMinion
     }
 
     public BossDeathDetector DeathDetector;
-    public bool              IsBoss         = false;
-    public Transform         GuardZoneCenter;
-    public float             GuardZoneRadius;
-    public SoundPlayer       SoundPlayer;
+    public bool IsBoss = false;
+    public Transform GuardZoneCenter;
+    public float GuardZoneRadius;
+    public SoundPlayer 
+        SoundPlayer;
     
     State _curState = State.Guarding;
 

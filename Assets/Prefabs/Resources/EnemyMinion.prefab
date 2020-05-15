@@ -228,9 +228,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f36603f7ad7341e3aee6486f6af7fff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OverrideBaseHp: -1
+  OverrideDamage: -1
   VisibilityCollider: {fileID: 8484844767480157278}
   AttackCollider: {fileID: 8484844768763287316}
-  WalkingAnim: {fileID: 0}
+  DeathDetector: {fileID: 0}
+  IsBoss: 0
   GuardZoneCenter: {fileID: 0}
   GuardZoneRadius: 0
   SoundPlayer: {fileID: 6844841603811574313}
@@ -566,7 +569,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 15
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8484844767480157278
 MonoBehaviour:
