@@ -93,7 +93,7 @@ public abstract class BaseMinion : BaseUnit
     void OnNoticeSomething(GameObject other) 
     {
         var enemy = GetEnemy(other);
-        if ( enemy ) 
+        if ( enemy != null ) 
         {
             OnNoticeEnemy(enemy);
         }
@@ -108,7 +108,7 @@ public abstract class BaseMinion : BaseUnit
     void OnLoseSomething(GameObject other)
     {
         var enemy = GetEnemy(other);
-        if ( enemy ) 
+        if ( enemy != null) 
         {
             OnLoseEnemy(enemy);
         }
